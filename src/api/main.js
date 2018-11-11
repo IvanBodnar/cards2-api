@@ -1,6 +1,8 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes/themes.routes');
+require('dotenv').config({ path: 'variables.env' });
 
 const app = express();
 
@@ -16,4 +18,12 @@ app.use((req, res, next) => {
 
 app.use('/', routes);
 
-app.listen(3000, () => console.log('App listening on port 3000'));
+mongoose.connect(process.env.DB)
+    .then(
+        () => app.listen(3000, () => console.log('App listening on port 3000'))
+    )
+    .catch(
+        error => console.log(error)
+    );
+
+
