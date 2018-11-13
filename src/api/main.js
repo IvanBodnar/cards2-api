@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes/themes.routes');
+
 require('dotenv').config({ path: 'variables.env' });
 
 const app = express();
@@ -25,5 +26,3 @@ mongoose.connect(process.env.DB)
     .catch(
         error => console.log(error)
     );
-
-
