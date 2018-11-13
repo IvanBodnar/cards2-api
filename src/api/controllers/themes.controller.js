@@ -15,7 +15,7 @@ const saveTheme = async (req, res, next) => {
 
 const themes = async (req, res, next) => {
     try {
-        const themes = await Theme.find();
+        const themes = await Theme.find({}, '_id name');
         res.send(themes);
     }
     catch (e) {
