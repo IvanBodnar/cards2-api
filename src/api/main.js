@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', routes);
-
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DB)
     .then(
         () => app.listen(3000, () => console.log('App listening on port 3000'))
