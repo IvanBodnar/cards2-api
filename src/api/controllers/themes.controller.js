@@ -26,7 +26,7 @@ const saveTheme = async (req, res, next) => {
 
 const deleteTheme = async (req, res, next) => {
     try {
-        const id = req.body.id;
+        const id = req.params.id;
         const deletedTheme = await Theme.findByIdAndRemove(id);
         res.send(deletedTheme);
     } catch (e) {

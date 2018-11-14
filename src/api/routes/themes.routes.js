@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.get('/themes', controllers.themes);
 router.post('/theme', controllers.saveTheme);
-router.delete('/theme_delete', controllers.deleteTheme);
+router.delete('/theme_delete/:id', controllers.deleteTheme);
 
 module.exports = router;
