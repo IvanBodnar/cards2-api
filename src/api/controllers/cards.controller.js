@@ -3,7 +3,7 @@ const Card = require('../models/card.model');
 
 const cards = async (req, res, next) => {
     try {
-        const themeName = req.body.themeName;
+        const themeName = req.params.themeName;
         const cards = await Card.find({ themeName: themeName });
         res.send(cards);
     }

@@ -8,7 +8,7 @@ router.get('/themes', themeControllers.themes);
 router.post('/theme', themeControllers.saveTheme);
 router.delete('/theme_delete/:id', themeControllers.deleteTheme);
 
-router.get('/cards', cardControllers.cards);
+router.get('/cards/:themeName', cardControllers.cards);
 router.post('/card', cardControllers.saveCard);
 
 module.exports = router;
