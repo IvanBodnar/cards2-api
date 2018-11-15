@@ -3,8 +3,8 @@ const Card = require('../models/card.model');
 
 const cards = async (req, res, next) => {
     try {
-        const themeId = req.body.themeId;
-        const cards = await Card.find({ themeId: themeId });
+        const themeName = req.body.themeName;
+        const cards = await Card.find({ themeName: themeName });
         res.send(cards);
     }
     catch (e) {
@@ -14,12 +14,10 @@ const cards = async (req, res, next) => {
 
 const saveCard = async (req, res, next) => {
     try {
-        let front, back, themeId;
-        [front, back, themeId] = [req.body.front, req.body.back, req.body.themeId];
         const card = new Card({
-            front,
-            back,
-            themeId
+            front: req.body.front,
+            back: req.body.back,
+            themeName: req.body.themeName
         });
         const savedCard = await card.save();
         res.send(savedCard);

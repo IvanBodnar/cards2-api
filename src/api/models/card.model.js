@@ -10,9 +10,9 @@ const cardSchema = new mongoose.Schema({
         type: String,
         required: 'Card back text missing'
     },
-    themeId: {
+    themeName: {
         type: String,
-        required: 'Card theme id missing'
+        required: 'Card theme name missing'
     }
 });
 
