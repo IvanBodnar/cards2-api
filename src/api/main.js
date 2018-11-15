@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const routes = require('./routes/themes.routes');
+const routes = require('./routes/main.routes');
 
 require('dotenv').config({ path: 'variables.env' });
 
