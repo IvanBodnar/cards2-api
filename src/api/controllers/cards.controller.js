@@ -3,10 +3,12 @@ const Card = require('../models/card.model');
 
 const cards = async (req, res, next) => {
     try {
-
+        const themeId = req.body.themeId;
+        const cards = await Card.find({ themeId: themeId });
+        res.send(cards);
     }
     catch (e) {
-
+        res.send(e);
     }
 };
 
