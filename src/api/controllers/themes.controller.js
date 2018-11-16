@@ -24,6 +24,21 @@ const saveTheme = async (req, res, next) => {
     }
 };
 
+const editTheme = async (req, res, next) => {
+    try {
+        const sentTheme = req.body;
+        const updatedTheme = await Theme.findOneAndUpdate(
+            { _id: sentTheme._id },
+            { front: sentTheme.front, back: sentTheme.back },
+            { new: true, runValidators: true }
+        );
+        res.send(updatedTheme);
+    }
+    catch (e) {
+        res.send(e);
+    }
+};
+
 const deleteTheme = async (req, res, next) => {
     try {
         const id = req.params.id;
@@ -38,5 +53,6 @@ const deleteTheme = async (req, res, next) => {
 module.exports = {
     saveTheme: saveTheme,
     deleteTheme: deleteTheme,
+    editTheme: editTheme,
     themes: themes
 };

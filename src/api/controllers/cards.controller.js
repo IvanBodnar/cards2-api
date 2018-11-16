@@ -30,7 +30,6 @@ const saveCard = async (req, res, next) => {
 const editCard = async (req, res, next) => {
     try {
         const sentCard = req.body;
-        console.log(sentCard._id)
         const updatedCard = await Card.findOneAndUpdate(
             { _id: sentCard._id },
             { front: sentCard.front, back: sentCard.back },
