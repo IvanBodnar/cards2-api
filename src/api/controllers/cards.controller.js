@@ -23,7 +23,7 @@ const saveCard = async (req, res, next) => {
         res.send(savedCard);
     }
     catch (e) {
-        res.send(e);
+        res.status(404).send(e);
     }
 };
 
