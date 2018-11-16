@@ -11,5 +11,6 @@ router.delete('/theme_delete/:id', themeControllers.deleteTheme);
 router.get('/cards/:themeName', cardControllers.cards);
 router.post('/card', cardControllers.saveCard);
 router.put('/card', cardControllers.editCard);
+router.delete('/card_delete/:id', cardControllers.deleteCard);
 
 module.exports = router;

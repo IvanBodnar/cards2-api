@@ -43,9 +43,21 @@ const editCard = async (req, res, next) => {
     }
 };
 
+const deleteCard = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const deletedCard = await Card.findOneAndDelete( { _id: id } );
+        res.send(deletedCard);
+    }
+    catch (e) {
+        res.send(e);
+    }
+};
+
 
 module.exports = {
     cards: cards,
     saveCard: saveCard,
-    editCard: editCard
+    editCard: editCard,
+    deleteCard: deleteCard
 };
