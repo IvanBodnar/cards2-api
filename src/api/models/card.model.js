@@ -13,6 +13,9 @@ const cardSchema = new mongoose.Schema({
     themeName: {
         type: String,
         required: 'Card theme name missing'
+    },
+    score: {
+        type: Number
     }
 });
 
