@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/api/main.js"
+    "start": "nodemon ./src/api/main.js",
+    "start:docker": "node ./src/api/main.js"
   },
   "keywords": [],
   "author": "",
