@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes/main.routes');
 
-require('dotenv').config({ path: 'variables.env' });
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config({ path: 'variables.env' });
+}
 
 const app = express();
 
@@ -21,7 +23,7 @@ app.use('/', routes);
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DB)
     .then(
-        () => app.listen(3000, () => console.log('App listening on port 3000'))
+        () => app.listen(process.env.PORT, () => console.log('App listening on port ' + process.env.PORT))
     )
     .catch(
         error => console.log(error)
