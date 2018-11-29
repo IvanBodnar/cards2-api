@@ -1,1 +1,1 @@
-docker build -t geronimodock/cards2-api
+docker build -t geronimodock/cards2-api .
