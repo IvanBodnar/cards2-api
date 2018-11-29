@@ -33,7 +33,7 @@ const editCard = async (req, res, next) => {
         const sentCard = req.body;
         const updatedCard = await Card.findOneAndUpdate(
             { _id: sentCard._id },
-            { front: sentCard.front, back: sentCard.back, score: sentCard.score },
+            { front: sentCard.front, back: sentCard.back },
             { new: true, runValidators: true }
         );
         res.send(updatedCard);
